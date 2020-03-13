@@ -1,1 +1,19 @@
-node_modules
+.ash_history
+.browserslistrc
+.bundle/
+.git/
+.local/
+node_modules/
+log/
+tmp/
+yarn-error.log
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
