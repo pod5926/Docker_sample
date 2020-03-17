@@ -123,7 +123,7 @@ workflows:
       - rspec:
           requires:
             - rubocop
-      - build
+      # - build
       - deploy:
           # requires:
           #   - build
