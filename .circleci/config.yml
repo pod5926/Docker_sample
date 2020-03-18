@@ -2,14 +2,14 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5-node-browsers-legacy
-        environment:
-          RAILS_ENV: test
-          POSTGRES_HOST: 127.0.0.1
-      - image: circleci/postgres:12.1
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: db
+    - image: circleci/ruby:2.6.5-node-browsers-legacy
+      environment:
+        RAILS_ENV: test
+        POSTGRES_HOST: 127.0.0.1
+    - image: circleci/postgres:12.1
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_DB: db
     working_directory: ~/repo
 
 
@@ -17,14 +17,16 @@ jobs:
     - checkout
 
     - restore_cache:
-      keys:
+        keys:
         - v1-dependencies-{{ checksum "Gemfile.lock" }}
         - v1-dependencies-
+
     - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
     - run: yarn install
+
     - save_cache:
         paths:
-          - ./vendor/bundle
+        - ./vendor/bundle
         key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
     # Database setup
