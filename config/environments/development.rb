@@ -61,6 +61,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #3/17
-  config.hosts << "peaceful-garden-74662.herokuapp.com"
+  config.hosts << "evening-savannah-28316.herokuapp.com"
   config.webpacker.check_yarn_integrity = false
 end
