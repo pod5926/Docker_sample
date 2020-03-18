@@ -62,4 +62,5 @@ Rails.application.configure do
 
   #3/17
   config.hosts << "peaceful-garden-74662.herokuapp.com"
+  config.webpacker.check_yarn_integrity = false
 end
