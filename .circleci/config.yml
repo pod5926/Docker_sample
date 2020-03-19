@@ -51,7 +51,7 @@ jobs:
 
     - run:
         name: heroku maintenance on
-        command: heroku maintenance:on
+        command: heroku maintenance:on --app ${HEROKU_APP_NAME}
 
     - deploy:
         name: Deploy Master to Heroku
@@ -62,8 +62,8 @@ jobs:
 
     - run:
         name: heroku db migrate
-        command: heroku run rails db:migrate
+        command: heroku run rails db:migrate --app ${HEROKU_APP_NAME}
 
     - run:
         name: heroku maintenance off
-        command: heroku maintenance:off
+        command: heroku maintenance:off --app ${HEROKU_APP_NAME}
